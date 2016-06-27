@@ -55,9 +55,9 @@ function benchmark(testName, count, callback) {
 //    = profileWrapper($.ui.fancytree._FancytreeNodeClass.prototype.addChildren);
 
 function addNodes(node, level1, level2, level3, forceUpdate) {
-//	if( forceUpdate !== true ){
-//		node.tree.enableUpdate(false);
-//	}
+	if( forceUpdate !== true ){
+		// node.tree.enableUpdate(false);
+	}
 	var d, f, i, j, k, key;
 	for(i=0; i<level1; i++) {
 		key = "" + (i+1);
@@ -78,7 +78,7 @@ function addNodes(node, level1, level2, level3, forceUpdate) {
 			}
 		}
 	}
-//	node.tree.enableUpdate(true);
+	// node.tree.enableUpdate(true);
 }
 
 
@@ -289,7 +289,8 @@ test("tabletree (6 columns): render and expand", function() {
 	timer = new tools.AsyncTimer("1000 nodes flat and expand", 1000);
 //    var timer = new AsyncTimer("1000 nodes (10 x 10 x 10) and force render(deep=true)");
 
-	addNodes(node, 1000, 0, 0);
+	// node.setExpanded();
+	addNodes(node, 1000, 0, 0, true);
 //    addNodes(node, 10, 10, 10);
 //  addNodes(node, 1, 390, 0);
 	timer.subtime("addNodes");
