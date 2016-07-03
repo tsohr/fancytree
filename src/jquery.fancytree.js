@@ -2262,7 +2262,7 @@ Fancytree.prototype = /** @lends Fancytree# */{
 	enableUpdate: function(flag) {
 		flag = ( flag !== false );
 		/* jshint -W018 */  // Confusing use of '!'
-		if ( !this._enableUpdate === !flag ) {
+		if ( !!this._enableUpdate === !!flag ) {
 			return flag;
 		}
 		/* jshint +W018 */
@@ -2270,9 +2270,8 @@ Fancytree.prototype = /** @lends Fancytree# */{
 		if ( flag ) {
 			this.debug("enableUpdate(true): redraw ", this._dirtyRoots);
 			this.render();
-		// } else {
-		// 	this._dirtyRoots = null;
 		} else {
+		// 	this._dirtyRoots = null;
 			this.debug("enableUpdate(false)...");
 		}
 		return !flag; // return previous value
@@ -3242,6 +3241,7 @@ $.extend(Fancytree.prototype,
 		// FT.debug("nodeRender(" + !!force + ", " + !!deep + ")", node.toString());
 
 		if( tree._enableUpdate === false ) {
+			// tree.debug("no render", tree._enableUpdate);
 			return;
 		}
 		if( ! isRootNode && ! parent.ul ) {
