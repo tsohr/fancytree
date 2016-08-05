@@ -1,3 +1,6 @@
+# Branch enableUpdate / Unreleased
+  * [Added] #607 Allow to temporarily disable updates to improve performance on bulk updates
+
 # 2.18.1-0 / Unreleased
   * [Fixed] #604 Set `source` option does not update tree
 
